@@ -1,0 +1,24 @@
+#!/bin/bash
+
+displayHelp()
+{
+  echo
+  echo Help!
+  echo
+}
+
+
+# if your shell is tcsh ...
+myshell=`basename ${SHELL}`
+if [[ ${myshell} == "tcsh" ]]
+then
+  lmod_dir_parent=`dirname ${LMOD_DIR}`
+  source ${lmod_dir_parent}/init/bash
+fi
+
+# if too few args ...
+if [ $# -lt 999 ] 
+then
+  displayHelp
+  exit
+fi
